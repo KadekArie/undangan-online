@@ -27,7 +27,7 @@ export default function EventDetailSection() {
         backgroundSize: "contain",
       }}
     >
-      <div className="px-4 md:px-16 lg:px-24 xl:px-64 py-18 xl:py-24 bg-linear-to-b from-white from-5% via-shadow-100/20 to-shadow-50 to-95% flex flex-col gap-4">
+      <div className="px-4 md:px-16 lg:px-24 xl:px-64 py-18 xl:py-24 bg-linear-to-b from-shadow-50 from-5% via-shadow-100/80 to-shadow-50 to-95% flex flex-col gap-4">
         <h1 className="font-heading text-4xl md:text-5xl text-shadow-400 text-center">
           Acara kami
         </h1>
