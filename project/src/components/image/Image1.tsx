@@ -8,8 +8,6 @@ import { AnimateSharedLayout, motion } from "motion/react";
 export default function Image1() {
   const [fullscreen, setFullscreen] = useState(false);
 
-  const fullScreenClass =
-    "fixed top-[50%] -translate-y-[50%] left-0 right-0 px-8 z-1000 bg-black/60";
   const defaultClass = "relative z-100 ";
 
   return (
@@ -34,7 +32,7 @@ export default function Image1() {
         </button>
       </motion.div>
       {fullscreen && (
-        <motion.div className="fixed inset-0 z-[1000] bg-black/60 flex items-center justify-center">
+        <motion.div className="fixed inset-0 z-1000 bg-black/60 flex items-center justify-center">
           <motion.img
             layoutId="image-1"
             src={img1}
