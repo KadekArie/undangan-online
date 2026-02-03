@@ -76,7 +76,7 @@ export default function CommentContainer() {
       {error && <div className="text-red-600 p-3">{error}</div>}
 
       {/* Comments list */}
-      <ul className="*:border-t *:border-shadow-200 *:px-24">
+      <ul className="*:border-t *:border-shadow-200 *:px-4 md:*:px-8 xl:*:px-24">
         {data?.data.map((comment) => (
           <CommentEntry comment={comment} key={comment.id} />
         ))}
@@ -91,7 +91,7 @@ export default function CommentContainer() {
         >
           <span>
             <FontAwesomeIcon icon={faArrowLeftLong} className="pe-2" />
-            Previous
+            <span className="hidden lg:inline">Previous</span>
           </span>
         </button>
 
@@ -121,7 +121,7 @@ export default function CommentContainer() {
           className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40"
         >
           <span>
-            Next
+            <span className="hidden lg:inline">Next</span>
             <FontAwesomeIcon icon={faArrowRightLong} className="ps-2" />
           </span>
         </button>

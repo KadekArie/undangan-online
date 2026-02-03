@@ -36,7 +36,10 @@ export default function CommentForm({ onSubmit, loading }: Props) {
   }
 
   return (
-    <form className="flex flex-col p-6 gap-6 text-sm" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col p-4 md:p-6 gap-4 md:gap-6 text-sm"
+      onSubmit={handleSubmit}
+    >
       <input
         id="author"
         name="author"

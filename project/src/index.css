@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Caramel";
+  src: url(./assets/Caramel-Regular.ttf);
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-shadow-50: #f6f6f0;
   --color-shadow-100: #e9e8d8;
@@ -12,6 +19,8 @@
   --color-shadow-800: #5b4b38;
   --color-shadow-900: #4f4134;
   --color-shadow-950: #2d231b;
+
+  --font-heading: "Caramel", serif;
 }
 
 .skeleton:is(p, span, label, small, strong, em, h1, h2, h3, h4, h5, h6, input, textarea) {
