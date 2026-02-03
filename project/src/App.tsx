@@ -1,9 +1,12 @@
-import CommentContainer from "./components/comments/CommentContainer";
+import BukuTamuSection from "./components/BukuTamuSection";
+import EventDetailSection from "./components/EventDetailSection";
 
 function App() {
   return (
     <>
-      <CommentContainer />
+      <EventDetailSection />
+      {/* Berisi countdown timer dan buku tamu (komentar / ucapan) */}
+      <BukuTamuSection />
     </>
   );
 }

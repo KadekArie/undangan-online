@@ -36,7 +36,7 @@ export default function CommentForm({ onSubmit, loading }: Props) {
   }
 
   return (
-    <form className="flex flex-col p-3 gap-5 text-sm" onSubmit={handleSubmit}>
+    <form className="flex flex-col p-6 gap-6 text-sm" onSubmit={handleSubmit}>
       <input
         id="author"
         name="author"
@@ -52,11 +52,13 @@ export default function CommentForm({ onSubmit, loading }: Props) {
           id="wishes"
           name="wishes"
           value={wishes}
-          onChange={(e) => setWishes(e.target.value)}
+          onChange={(e) => {
+            if (wishes.length < 500) setWishes(e.target.value);
+          }}
           placeholder="Ucapan"
           className={`min-h-30 max-h-60 w-full placeholder-opacity-70 invalid:opacity-70 p-2 outline outline-shadow-300 focus:outline-2 bg-white rounded-md`}
         />
-        <span className="self-end">500</span>
+        <span className="self-end text-shadow-700">{500 - wishes.length}</span>
       </div>
 
       <select

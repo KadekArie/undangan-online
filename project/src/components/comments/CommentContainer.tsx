@@ -61,73 +61,71 @@ export default function CommentContainer() {
   }, [data?.total_pages, data?.current_page, maxVisible]);
 
   return (
-    <section id="comments">
-      <div className={`border rounded-xl bg-shadow-50 border-shadow-200`}>
-        <CommentHeader count={data?.total_items ?? 0} />
+    <div className={`w-full border rounded-xl bg-shadow-50 border-shadow-200`}>
+      <CommentHeader count={data?.total_items ?? 0} />
 
-        {/* Comment form component */}
-        <CommentForm
-          loading={loading}
-          onSubmit={async (payload) => {
-            await postComment(payload);
-            goToPage(1);
-          }}
-        />
+      {/* Comment form component */}
+      <CommentForm
+        loading={loading}
+        onSubmit={async (payload) => {
+          await postComment(payload);
+          goToPage(1);
+        }}
+      />
 
-        {error && <div className="text-red-600 p-3">{error}</div>}
+      {error && <div className="text-red-600 p-3">{error}</div>}
 
-        {/* Comments list */}
+      {/* Comments list */}
+      <ul className="*:border-t *:border-shadow-200 *:px-24">
         {data?.data.map((comment) => (
           <CommentEntry comment={comment} key={comment.id} />
         ))}
+      </ul>
 
-        {/* Adaptive pagination controls */}
-        <div className="flex items-center justify-center p-3 flex-wrap gap-2 border-t border-shadow-200">
-          <button
-            onClick={() => prevPage()}
-            disabled={!data || data.current_page <= 1}
-            className="px-3 py-1"
-          >
-            <span>
-              <FontAwesomeIcon icon={faArrowLeftLong} className="pe-2" />
-              Previous
-            </span>
-          </button>
+      {/* Adaptive pagination controls */}
+      <div className="flex items-center justify-center p-3 flex-wrap gap-2 border-t border-shadow-200">
+        <button
+          onClick={() => prevPage()}
+          disabled={!data || data.current_page <= 1}
+          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40"
+        >
+          <span>
+            <FontAwesomeIcon icon={faArrowLeftLong} className="pe-2" />
+            Previous
+          </span>
+        </button>
 
-          <div className="flex items-center gap-2 flex-wrap">
-            {pageItems.length === 0 && (
-              <span className="text-sm">No pages</span>
-            )}
-            {pageItems.map((it: number | "ellipsis", idx: number) =>
-              it === "ellipsis" ? (
-                <span key={`el-${idx}`} className="px-2">
-                  ...
-                </span>
-              ) : (
-                <button
-                  key={`p-${it}`}
-                  onClick={() => goToPage(it)}
-                  aria-current={data?.current_page === it}
-                  className={`px-3 py-1 rounded border ${data?.current_page === it ? "bg-shadow-700 text-white" : ""}`}
-                >
-                  {it}
-                </button>
-              ),
-            )}
-          </div>
-
-          <button
-            onClick={() => nextPage()}
-            disabled={!data || data.current_page >= (data?.total_pages ?? 0)}
-            className="px-3 py-1"
-          >
-            <span>
-              Next
-              <FontAwesomeIcon icon={faArrowRightLong} className="ps-2" />
-            </span>
-          </button>
+        <div className="flex items-center gap-2 flex-wrap">
+          {pageItems.length === 0 && <span className="text-sm">No pages</span>}
+          {pageItems.map((it: number | "ellipsis", idx: number) =>
+            it === "ellipsis" ? (
+              <span key={`el-${idx}`} className="px-2">
+                ...
+              </span>
+            ) : (
+              <button
+                key={`p-${it}`}
+                onClick={() => goToPage(it)}
+                aria-current={data?.current_page === it}
+                className={`px-3 py-1 rounded border ${data?.current_page === it ? "bg-shadow-700 text-white" : ""}`}
+              >
+                {it}
+              </button>
+            ),
+          )}
         </div>
+
+        <button
+          onClick={() => nextPage()}
+          disabled={!data || data.current_page >= (data?.total_pages ?? 0)}
+          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40"
+        >
+          <span>
+            Next
+            <FontAwesomeIcon icon={faArrowRightLong} className="ps-2" />
+          </span>
+        </button>
       </div>
-    </section>
+    </div>
   );
 }

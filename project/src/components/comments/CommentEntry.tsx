@@ -7,7 +7,7 @@ import { timeAgoId } from "../../utils/timeAgoId";
 
 export default function CommentEntry({ comment }: { comment: Comment }) {
   return (
-    <div className="flex flex-col p-4 px-12 border-t border-shadow-200">
+    <li className="flex flex-col p-4 pb-8">
       <div className="flex flex-row gap-2">
         <h2 className="text-shadow-700 font-sm font-semibold">
           {comment.author}
@@ -19,7 +19,7 @@ export default function CommentEntry({ comment }: { comment: Comment }) {
         {timeAgoId(comment.created_at ?? new Date().toISOString())}
       </span>
       <p className="mt-4 text-shadow-900 text-sm">{comment.wishes}</p>
-    </div>
+    </li>
   );
 }
 
