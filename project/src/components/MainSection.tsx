@@ -1,8 +1,5 @@
 import mainImg from "../assets/om-swastiastu.png";
 
-import img2 from "../assets/puri-pejeng-alt.jpeg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Image1 from "./image/Image1";
 import Image2 from "./image/Image2";
 
