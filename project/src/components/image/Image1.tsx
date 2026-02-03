@@ -15,14 +15,16 @@ export default function Image1() {
   return (
     <AnimateSharedLayout>
       <motion.div
-        className={`${defaultClass} w-full aspect-square md:aspect-video overflow-hidden rounded-3xl "shadow-inner`}
+        className={`${defaultClass} w-full aspect-square lg:aspect-[0.5] overflow-hidden rounded-3xl "shadow-inner`}
       >
-        <motion.img
-          layoutId="image-1"
-          src={img1}
-          alt="Puri Pejeng"
-          className={`w-full h-full object-cover rounded-3xl bg-contain`}
-        />
+        {!fullscreen && (
+          <motion.img
+            layoutId="image-1"
+            src={img1}
+            alt="Puri Pejeng"
+            className={`w-full h-full object-cover rounded-3xl bg-contain`}
+          />
+        )}
         <button
           onClick={() => setFullscreen(true)}
           className="opacity-0 hover:opacity-80 transition-all absolute top-0 left-0 bg-black/60 text-white w-full h-full flex flex-col items-center justify-center gap-4 text-2xl"
@@ -31,24 +33,28 @@ export default function Image1() {
           <span className="text-lg">Klik untuk melihat gambar lebih besar</span>
         </button>
       </motion.div>
-      {fullscreen ? (
-        <motion.div
-          className={`${fullScreenClass} h-full flex flex-col justify-center gap-4`}
-        >
+      {fullscreen && (
+        <motion.div className="fixed inset-0 z-[1000] bg-black/60 flex items-center justify-center">
           <motion.img
             layoutId="image-1"
             src={img1}
             alt="Puri Pejeng"
-            className={`w-full object-cover rounded-3xl aspect-square md:aspect-video bg-contain`}
+            className="
+        max-w-[90vw]
+        max-h-[85vh]
+        object-contain
+        rounded-3xl
+      "
           />
+
           <button
-            className="cursor-pointer"
             onClick={() => setFullscreen(false)}
+            className="absolute top-6 right-6 text-white"
           >
-            <FontAwesomeIcon icon={faClose} className="text-3xl text-white" />
+            <FontAwesomeIcon icon={faClose} className="text-3xl" />
           </button>
         </motion.div>
-      ) : null}
+      )}
     </AnimateSharedLayout>
   );
 }

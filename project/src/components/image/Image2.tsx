@@ -31,24 +31,28 @@ export default function Image2() {
           <span className="text-lg">Klik untuk melihat gambar lebih besar</span>
         </button>
       </motion.div>
-      {fullscreen ? (
-        <motion.div
-          className={`${fullScreenClass} h-full flex flex-col justify-center gap-4`}
-        >
+      {fullscreen && (
+        <motion.div className="fixed inset-0 z-[1000] bg-black/60 flex items-center justify-center">
           <motion.img
             layoutId="image-2"
             src={img2}
             alt="Puri Pejeng"
-            className={`w-full object-cover rounded-3xl aspect-square md:aspect-video bg-contain`}
+            className="
+        max-w-[90vw]
+        max-h-[85vh]
+        object-contain
+        rounded-3xl
+      "
           />
+
           <button
-            className="cursor-pointer"
             onClick={() => setFullscreen(false)}
+            className="absolute top-6 right-6 text-white"
           >
-            <FontAwesomeIcon icon={faClose} className="text-3xl text-white" />
+            <FontAwesomeIcon icon={faClose} className="text-3xl" />
           </button>
         </motion.div>
-      ) : null}
+      )}
     </AnimateSharedLayout>
   );
 }

@@ -1,6 +1,5 @@
 import bg from "../assets/comment-section-bg.jpeg";
 import CommentContainer from "./comments/CommentContainer";
-import leaves from "../assets/leaves.png";
 
 export default function BukuTamuSection() {
   return (

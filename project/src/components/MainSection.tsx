@@ -38,9 +38,10 @@ export default function MainSection() {
         <h4 className="text-shadow-600 font-serif text-2xl md:text-3xl mb-8">
           Desa Pejeng, Tampaksiring Gianyar
         </h4>
-        <Image1 />
-        <div className="h-8" />
-        <Image2 />
+        <div className="flex flex-col lg:flex-row gap-8">
+          <Image1 />
+          <Image2 />
+        </div>
         <p className="text-shadow-600 font-serif text-2xl md:text-3xl mt-2">
           Puri Pejeng
         </p>
