@@ -87,7 +87,7 @@ export default function CommentContainer() {
         <button
           onClick={() => prevPage()}
           disabled={!data || data.current_page <= 1}
-          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40"
+          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40 not-disabled:hover:scale-110 transition-transform"
         >
           <span>
             <FontAwesomeIcon icon={faArrowLeftLong} className="pe-2" />
@@ -107,7 +107,7 @@ export default function CommentContainer() {
                 key={`p-${it}`}
                 onClick={() => goToPage(it)}
                 aria-current={data?.current_page === it}
-                className={`px-3 py-1 rounded border ${data?.current_page === it ? "bg-shadow-700 text-white" : ""}`}
+                className={`px-3 py-1 rounded border transition-colors ${data?.current_page === it ? "bg-shadow-700 text-white" : "hover:bg-shadow-100 cursor-pointer"}`}
               >
                 {it}
               </button>
@@ -118,7 +118,7 @@ export default function CommentContainer() {
         <button
           onClick={() => nextPage()}
           disabled={!data || data.current_page >= (data?.total_pages ?? 0)}
-          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40"
+          className="px-3 py-1 cursor-pointer disabled:cursor-default disabled:opacity-40 not-disabled:hover:scale-110 transition-transform"
         >
           <span>
             <span className="hidden lg:inline">Next</span>

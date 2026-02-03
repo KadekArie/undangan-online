@@ -1,9 +1,17 @@
-import heroBg from '../assets/bg-img.jpeg'; 
+import heroBg from "../assets/bg-img.jpeg";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black mb-5">
-      <div className="absolute inset-0 z-0 brightness-[0.2]" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}} />
+      <div
+        className="absolute inset-0 z-0 brightness-[0.2] bg-fixed"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
       <div className="w-full relative z-10 text-center px-4">
         <h1 className="text-shadow-600 font-serif text-xl md:text-2xl mb-2 tracking-wide">
           MELASPAS
