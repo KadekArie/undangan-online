@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@theme {
+  --color-shadow-50: #f6f6f0;
+  --color-shadow-100: #e9e8d8;
+  --color-shadow-200: #d5d1b3;
+  --color-shadow-300: #bdb387;
+  --color-shadow-400: #a99b66;
+  --color-shadow-500: #9a8958;
+  --color-shadow-600: #7b6945;
+  --color-shadow-700: #6b583d;
+  --color-shadow-800: #5b4b38;
+  --color-shadow-900: #4f4134;
+  --color-shadow-950: #2d231b;
+}
+
+.skeleton:is(p, span, label, small, strong, em, h1, h2, h3, h4, h5, h6, input, textarea) {
+  background-color: gray;
+  color: transparent;
+  border-radius: 10px;
+  animation: skeleton 3s ease-in-out 0 infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}

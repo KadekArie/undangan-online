@@ -1,5 +1,11 @@
+import CommentContainer from "./components/comments/CommentContainer";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <CommentContainer />
+    </>
+  );
 }
 
 export default App;
