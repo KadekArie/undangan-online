@@ -7,7 +7,7 @@ import { timeAgoId } from "../../utils/timeAgoId";
 
 export default function CommentEntry({ comment }: { comment: Comment }) {
   return (
-    <li className="flex flex-col p-4 pb-8">
+    <li className="flex flex-col py-4 md:py-8 pb-6">
       <div className="flex flex-row gap-2">
         <h2 className="text-shadow-700 font-sm font-semibold">
           {comment.author}

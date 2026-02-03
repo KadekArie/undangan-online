@@ -1,4 +1,5 @@
 import BukuTamuSection from "./components/BukuTamuSection";
+import FooterSection from "./components/FooterSection";
 import EventDetailSection from "./components/EventDetailSection";
 import HeroSection from "./components/HeroSection";
 import MainSection from "./components/MainSection";
@@ -8,9 +9,9 @@ function App() {
     <>
       <HeroSection/>
       <MainSection/>
-      <EventDetailSection/>
-      {/* Berisi countdown timer dan buku tamu (komentar / ucapan) */}
-      <BukuTamuSection/>
+      <EventDetailSection />
+      <BukuTamuSection />
+      <FooterSection />
     </>
   );
 }
