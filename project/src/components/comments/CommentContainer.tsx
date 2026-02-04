@@ -6,6 +6,17 @@ import CommentForm from "./CommentForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons/faArrowLeftLong";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons/faArrowRightLong";
+import { motion } from "motion/react";
+
+const list = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 function buildPageItems(current: number, total: number, maxVisible = 5) {
   const items: Array<number | "ellipsis"> = [];
@@ -76,11 +87,17 @@ export default function CommentContainer() {
       {error && <div className="text-red-600 p-3">{error}</div>}
 
       {/* Comments list */}
-      <ul className="*:border-t *:border-shadow-200 *:px-4 md:*:px-8 xl:*:px-24">
+      <motion.ul
+        key={data?.data.length}
+        variants={list}
+        initial="hidden"
+        animate="show"
+        className="*:border-t *:border-shadow-200 *:px-4 md:*:px-8 xl:*:px-24"
+      >
         {data?.data.map((comment) => (
           <CommentEntry comment={comment} key={comment.id} />
         ))}
-      </ul>
+      </motion.ul>
 
       {/* Adaptive pagination controls */}
       <div className="flex items-center justify-center p-3 flex-wrap gap-2 border-t border-shadow-200">

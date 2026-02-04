@@ -2,23 +2,26 @@ import mainImg from "../assets/om-swastiastu.png";
 
 import Image1 from "./image/Image1";
 import Image2 from "./image/Image2";
+import AnimateOnScreen from "./utils/AnimateOnScreen";
 
 export default function MainSection() {
   return (
-    <section className="py-16 px-4 bg-linear-to-b from-[#f9f9f9] to-white">
+    <section className="py-16 px-4 bg-linear-to-b from-white to-shadow-50">
       <div className="max-w-4xl mx-auto text-center relative z-10 mb-5">
-        <div className="flex justify-center mb-6 items-center">
+        <AnimateOnScreen className="flex justify-center mb-6 items-center">
           <img
             src={mainImg}
             alt="Om Swastyastu"
             className="px-56 max-w-full max-h-full object-contain"
           />
-        </div>
-        <h2 className="text-sm text-shadow-600 md:text-xs max-w-2xl mx-auto leading-relaxed px-4 mb-10 font-serif italic">
-          Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang
-          Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada
-          Upacara Dewa Yadnya Melaspas
-        </h2>
+        </AnimateOnScreen>
+        <AnimateOnScreen>
+          <h2 className="text-sm text-shadow-600 md:text-xs max-w-2xl mx-auto leading-relaxed px-4 mb-10 font-serif italic">
+            Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang
+            Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada
+            Upacara Dewa Yadnya Melaspas
+          </h2>
+        </AnimateOnScreen>
 
         <div className="flex justify-center mb-6">
           <div className="flex justify-center">
@@ -32,17 +35,23 @@ export default function MainSection() {
             </svg>
           </div>
         </div>
-        <h3 className="text-shadow-500 font-serif tracking-[0.3em] uppercase text-sm md:text-base mb-2">
-          Br. Puseh,
-        </h3>
-        <h4 className="text-shadow-600 font-serif text-2xl md:text-3xl mb-8">
-          Desa Pejeng, Tampaksiring Gianyar
-        </h4>
+        <AnimateOnScreen>
+          <h3 className="text-shadow-500 font-serif tracking-[0.3em] uppercase text-sm md:text-base mb-2">
+            Br. Puseh
+          </h3>
+          <h4 className="text-shadow-600 font-serif text-2xl md:text-3xl mb-8">
+            Desa Pejeng, Tampaksiring Gianyar
+          </h4>
+        </AnimateOnScreen>
         <div className="flex flex-col lg:flex-row gap-8">
-          <Image1 />
-          <Image2 />
+          <AnimateOnScreen>
+            <Image1 />
+          </AnimateOnScreen>
+          <AnimateOnScreen>
+            <Image2 />
+          </AnimateOnScreen>
         </div>
-        <p className="text-shadow-600 font-serif text-2xl md:text-3xl mt-2">
+        <p className="text-shadow-600 font-serif text-2xl md:text-3xl mt-8">
           Puri Pejeng
         </p>
       </div>

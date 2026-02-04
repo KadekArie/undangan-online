@@ -1,16 +1,28 @@
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import heroBg from "../assets/bg-img.jpeg";
 
 export default function HeroSection() {
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => console.log(latest));
+  const scale = useTransform(scrollY, [0, window.screen.height], [1, 1.3]);
+
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black mb-5">
-      <div
-        className="absolute inset-0 z-0 brightness-[0.2] bg-fixed"
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden mb-5">
+      <motion.div
+        className="fixed -z-10 h-full inset-0 brightness-[0.2] bg-fixed object-cover"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          scale: scale,
         }}
+        transition={{ ease: "linear" }}
       />
       <div className="w-full relative z-10 text-center px-4">
         <h1 className="text-shadow-600 font-serif text-xl md:text-2xl mb-2 tracking-wide">
