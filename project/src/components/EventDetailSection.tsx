@@ -67,7 +67,7 @@ export default function EventDetailSection() {
               <div className="flex flex-col items-center p-4 md:p-8 border border-shadow-200 bg-white rounded-md text-shadow-300">
                 <FontAwesomeIcon icon={faClock} className="text-3xl mb-4" />
                 <h2 className="font-semibold text-center text-md lg:text-xl">
-                  10.00 WITA
+                  09.00 WITA
                 </h2>
                 <p className="text-black/60 text-sm">s/d Selesai</p>
               </div>

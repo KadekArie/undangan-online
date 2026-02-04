@@ -6,6 +6,7 @@ import MainSection from "./components/MainSection";
 import EnvelopeOverlay from "./components/EnvelopeOverlay";
 import { useEffect, useState } from "react";
 import SimpleMusicPlayer from "./components/MusicPlayer";
+import LinkGenerator from "./components/LinkGenerator"
 
 function App() {
   useEffect(() => {
@@ -13,6 +14,12 @@ function App() {
   }, []);
 
   const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const isGeneratorPage = window.location.pathname === "/generate";
+
+  if (isGeneratorPage) {
+    return <LinkGenerator />;
+  }
 
   return (
     <>

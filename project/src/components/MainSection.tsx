@@ -19,7 +19,7 @@ export default function MainSection() {
           <h2 className="text-sm text-shadow-600 md:text-xs max-w-2xl mx-auto leading-relaxed px-4 mb-10 font-serif italic">
             Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang
             Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada
-            Upacara Dewa Yadnya Melaspas
+            Upacara Dewa Yadnya Karya Mamungkah Mlaspas Mapadagingan Nyanggar Agung
           </h2>
         </AnimateOnScreen>
 

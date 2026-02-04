@@ -41,7 +41,7 @@ export default function EnvelopeOverlay({
           <span className="text-2xl text-center">
             Kepada Bapak/Ibu/Saudara/i
           </span>
-          <span className="text-4xl">{params.get("to")}</span>
+          <span className="text-4xl text-center">{params.get("to")}</span>
           <span className="italic">
             Mohon maaf apabila ada kesalahan penulisan nama/gelar
           </span>
