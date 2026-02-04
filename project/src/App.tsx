@@ -6,7 +6,8 @@ import MainSection from "./components/MainSection";
 import EnvelopeOverlay from "./components/EnvelopeOverlay";
 import { useEffect, useState } from "react";
 import SimpleMusicPlayer from "./components/MusicPlayer";
-import LinkGenerator from "./components/LinkGenerator"
+import LinkGenerator from "./components/LinkGenerator";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
   useEffect(() => {
@@ -14,26 +15,29 @@ function App() {
   }, []);
 
   const [musicPlaying, setMusicPlaying] = useState(false);
-
-  const isGeneratorPage = window.location.pathname === "/generate";
-
-  if (isGeneratorPage) {
-    return <LinkGenerator />;
-  }
-
   return (
-    <>
-      <SimpleMusicPlayer
-        playing={musicPlaying}
-        togglePlaying={() => setMusicPlaying((p) => !p)}
-      />
-      <EnvelopeOverlay onOpened={() => setMusicPlaying(true)} />
-      <HeroSection />
-      <MainSection />
-      <EventDetailSection />
-      <BukuTamuSection />
-      <FooterSection />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <SimpleMusicPlayer
+                playing={musicPlaying}
+                togglePlaying={() => setMusicPlaying((p) => !p)}
+              />
+              <EnvelopeOverlay onOpened={() => setMusicPlaying(true)} />
+              <HeroSection />
+              <MainSection />
+              <EventDetailSection />
+              <BukuTamuSection />
+              <FooterSection />
+            </>
+          }
+        />
+        <Route path="/generate" element={<LinkGenerator />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
