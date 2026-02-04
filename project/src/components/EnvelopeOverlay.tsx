@@ -42,7 +42,7 @@ export default function EnvelopeOverlay({
             Kepada Bapak/Ibu/Saudara/i
           </span>
           <span className="text-4xl text-center">{params.get("to")}</span>
-          <span className="italic">
+          <span className="italic text-center">
             Mohon maaf apabila ada kesalahan penulisan nama/gelar
           </span>
         </div>
