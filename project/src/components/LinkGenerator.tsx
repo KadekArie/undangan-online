@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 export default function LinkGenerator() {
-  const [namaTamu, setNamaTamu] = useState('');
+  const [guestName, setGuestName] = useState('');
   const baseUrl = "https://melaspas-pejeng-gianyar.vercel.app/";
 
-  const buatSlug = (text: string) => {
+  const createSlug = (text: string) => {
     return text
       .trim()
       .toLowerCase()
@@ -13,69 +13,52 @@ export default function LinkGenerator() {
       .replace(/-+$/, '');
   };
 
-  const formatTampilan = (text: string) => {
-    const slug = buatSlug(text);
-    return slug
-      .split('-')
-      .map((kata) => {
-        const listGelar = ['spd', 'sh', 'skom', 'st', 'se', 'pd', 'dr'];
-        if (listGelar.includes(kata.toLowerCase())) {
-          return kata.toUpperCase();
-        }
-        return kata.charAt(0).toUpperCase() + kata.slice(1);
-      })
-      .join(' ')
-      .replace(/\s(SPD|SH|SKOM|ST|SE|PD)$/, ', $1');
-  };
+  const safeSlug = encodeURIComponent(createSlug(guestName));
+  const generatedUrl = `${baseUrl}?to=${safeSlug}`;
 
-  const linkHasil = `${baseUrl}?to=${buatSlug(namaTamu)}`;
-
-  const salinKeClipboard = () => {
-    navigator.clipboard.writeText(linkHasil);
-    alert("Link disalin ke clipboard!");
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(generatedUrl);
+    alert("Invitation link encoded and copied to clipboard!");
   };
 
   return (
-    <div className="max-w-md mx-auto my-10 p-6 bg-white rounded-2xl shadow-xl border border-gray-100 font-sans">
-      <h2 className="text-[#9a8958] font-serif text-2xl mb-6 text-center font-bold">
-        Link Undangan Generator
-      </h2>
-      
-      <div className="space-y-6">
-        <div>
-          <label className="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-2 block ml-1">
-            Nama Tamu & Gelar
-          </label>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
+        <div className="text-center mb-8">
+          <div className="bg-[#9a8958]/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">🔗</span>
+          </div>
+          <h2 className="text-[#9a8958] font-serif text-2xl font-bold">Link Generator</h2>
+          <p className="text-gray-400 text-xs mt-1">Nama dan Gelar Otomatis Terformat</p>
+        </div>
+        
+        <div className="space-y-6">
           <input 
             type="text" 
-            placeholder="Contoh: Wayan Sudira, S.Pd"
-            className="w-full p-4 border-2 border-gray-50 rounded-xl focus:ring-2 focus:ring-[#9a8958] focus:border-transparent outline-none transition-all bg-gray-50"
-            onChange={(e) => setNamaTamu(e.target.value)}
+            placeholder="Example: Wayan Sudira, S.Pd"
+            className="w-full p-4 bg-gray-50 border-2 border-transparent focus:border-[#9a8958] rounded-2xl outline-none transition-all text-gray-700"
+            onChange={(e) => setGuestName(e.target.value)}
           />
-        </div>
 
-        {namaTamu && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
-            <div className="p-4 bg-[#9a8958]/5 rounded-xl border border-[#9a8958]/20 text-center">
-              <p className="text-[10px] text-[#9a8958] uppercase tracking-widest mb-1">Preview di Undangan:</p>
-              <p className="text-lg font-serif text-gray-800">{formatTampilan(namaTamu)}</p>
-            </div>
-            <div className="p-4 bg-gray-900 rounded-xl">
-              <p className="text-[10px] text-gray-500 uppercase mb-2 font-bold tracking-tighter">Link:</p>
-              <p className="text-xs break-all font-mono text-gray-300 mb-4 opacity-80">{linkHasil}</p>
+          {guestName && (
+            <div className="space-y-4 animate-in fade-in zoom-in duration-300">
+              <div className="p-4 bg-gray-900 rounded-2xl relative overflow-hidden border border-gray-800">
+                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-2">Encoded URL:</p>
+                <p className="text-xs font-mono text-gray-300 break-all leading-relaxed">
+                  {generatedUrl}
+                </p>
+              </div>
+
               <button 
-                onClick={salinKeClipboard}
-                className="w-full py-3 bg-[#9a8958] text-white rounded-xl font-bold hover:bg-[#86774a] active:scale-[0.98] transition-all shadow-lg shadow-[#9a8958]/20"
+                onClick={copyToClipboard}
+                className="w-full py-4 bg-[#9a8958] text-white rounded-2xl font-bold hover:shadow-lg hover:shadow-[#9a8958]/30 active:scale-95 transition-all"
               >
                 Salin Link Undangan
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-
-      <p className="mt-8 text-center text-[10px] text-gray-400 italic">
-      </p>
     </div>
   );
 }
