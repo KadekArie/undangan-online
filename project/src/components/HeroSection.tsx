@@ -26,12 +26,12 @@ export default function HeroSection() {
       />
       <div className="w-full relative z-10 text-center px-4">
         <h1 className="text-shadow-600 font-serif text-xl md:text-2xl mb-2 tracking-wide">
-          MELASPAS
+          Karya Mamungkah Mlaspas
         </h1>
-        <p className="text-shadow-500 font-serif text-5xl md:text-7xl lg:text-8xl items-center justify-center my-4">
-          Puri Pejeng
+        <p className="text-shadow-500 font-serif text-4xl md:text-7xl lg:text-8xl items-center justify-center my-4">
+          Mapadagingan Nyanggar Agung
         </p>
-        <p className="text-shadow-600 font-serif text-2xl md:text-3xl mt-2 tracking-[0.2em]">
+        <p className="text-shadow-600 font-serif text-2xl md:text-3xl tracking-[0.2em] my-12">
           15 / 02 / 26
         </p>
         <p className="text-shadow-600 font-serif text-lg md:text-2xl mt-4 max-w-2xl mx-auto italic opacity-90">

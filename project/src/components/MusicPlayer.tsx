@@ -14,6 +14,8 @@ export default function SimpleMusicPlayer({
   useEffect(() => {
     if (!audioRef.current) return;
 
+    audioRef.current.volume = 0.4;
+
     if (playing) {
       audioRef.current.play().catch(() => {});
     } else {
