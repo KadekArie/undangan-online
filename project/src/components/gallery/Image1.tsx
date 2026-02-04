@@ -32,7 +32,7 @@ export default function Image1() {
         </button>
       </motion.div>
       {fullscreen && (
-        <motion.div className="fixed inset-0 z-1000 bg-black/60 flex items-center justify-center">
+        <motion.div className="fixed inset-0 z-10000 bg-black/60 flex items-center justify-center">
           <motion.img
             layoutId="image-1"
             src={img1}

@@ -17,7 +17,7 @@ export default function FooterSection() {
       <section id="footer" className="py-16 pb-8 bg-black text-white">
         <div id="contacts" className="flex justify-center items-center gap-4">
           <a
-            href="emailto:kadekarie43@gmail.com"
+            href="mailto:kadekarie43@gmail.com"
             className="hover:scale-[110%] hover:rotate-3 transition-transform"
           >
             <FontAwesomeIcon icon={faEnvelope} className="text-3xl" />

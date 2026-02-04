@@ -1,7 +1,7 @@
 import mainImg from "../assets/om-swastiastu.png";
 
-import Image1 from "./image/Image1";
-import Image2 from "./image/Image2";
+import Image1 from "./gallery/Image1";
+import Image2 from "./gallery/Image2";
 import AnimateOnScreen from "./utils/AnimateOnScreen";
 
 export default function MainSection() {
@@ -43,14 +43,12 @@ export default function MainSection() {
             Desa Pejeng, Tampaksiring Gianyar
           </h4>
         </AnimateOnScreen>
-        <div className="flex flex-col lg:flex-row gap-8">
-          <AnimateOnScreen>
+        <AnimateOnScreen>
+          <div className="flex flex-col lg:flex-row gap-8">
             <Image1 />
-          </AnimateOnScreen>
-          <AnimateOnScreen>
             <Image2 />
-          </AnimateOnScreen>
-        </div>
+          </div>
+        </AnimateOnScreen>
         <p className="text-shadow-600 font-serif text-2xl md:text-3xl mt-8">
           Puri Pejeng
         </p>
